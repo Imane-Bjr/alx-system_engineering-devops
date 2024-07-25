@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+# setup a configuration file for your server
+Host *
+  HostName 54.236.45.95
+  User ubuntu
+  IdentityFile ~/.ssh/school
+  PasswordAuthentication no
