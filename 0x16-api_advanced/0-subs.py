@@ -2,8 +2,6 @@
 """
 number of subscribers 'How Many Subs?'
 """
-
-
 import requests as req
 headers = {"User-Agent": "User_Agent_/3.0"}
 
