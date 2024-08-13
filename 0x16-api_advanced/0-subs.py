@@ -1,18 +1,20 @@
+
 #!/usr/bin/python3
 """
-this doc for module
+number of subscribers 'How Many Subs?'
 """
-import requests
 
-headers = {"User-Agent": "MyCustomUserAgent/1.0"}
+
+import requests as req
+headers = {"User-Agent": "User_Agent_/3.0"}
 
 
 def number_of_subscribers(subreddit):
-    """method doc"""
+    """Method Subscribers"""
     url = "https://www.reddit.com/r/{}/about.json".format(subreddit)
-    response = requests.get(url, allow_redirects=False, headers=headers)
+    response = req.get(url, allow_redirects=False, headers=headers)
     if response.status_code == 200:
         data = response.json()
-        return data["data"]["subscribers"]
-    else:
-        return 0
+        return data['data']['subscribers']
+    return 0
+
