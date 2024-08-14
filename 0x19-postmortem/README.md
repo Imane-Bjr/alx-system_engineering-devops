@@ -1,6 +1,6 @@
 # Postmortem Report: The Great Website Meltdown of August 2024
 
-![Incident](https://media.gifdb.com/it-s-fine-dog-in-burning-house-mx7r7liwd4zk7hrz.gif)
+![It’s Fine](https://media.gifdb.com/it-s-fine-dog-in-burning-house-mx7r7liwd4zk7hrz.gif)
 
 ## Overview
 
