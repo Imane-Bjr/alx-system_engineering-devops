@@ -1,5 +1,7 @@
 # Postmortem Report: The Great Website Meltdown of August 2024
 
+![Incident](https://media.gifdb.com/it-s-fine-dog-in-burning-house-mx7r7liwd4zk7hrz.gif)
+
 ## Overview
 
 On August 12, 2024, our main website experienced a significant outage, leaving users facing a frustrating 500 Internal Server Error. This README provides a detailed postmortem of the incident, including the timeline, root cause, resolution, and steps to prevent future occurrences.
