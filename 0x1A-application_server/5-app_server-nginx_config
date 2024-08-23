@@ -1,0 +1,56 @@
+server {
+    listen 80 default_server;
+    listen [::]:80 default_server;
+
+    # Custom header for tracking
+    add_header X-Served-By 369098-web-01;
+
+    # Server name
+    server_name 54.209.139.50;
+
+    # Redirect /redirect_me to an external URL
+    location /redirect_me {
+        return 301 https://www.youtube.com/watch?v=QH2-TGUlwu4;
+    }
+
+    # Serve static files from /var/www/html
+    location / {
+        root /var/www/html;
+        index index.html;
+        error_page 404 /error.html;
+    }
+
+    # Serve static files from /data/web_static/current/
+    location /hbnb_static/ {
+        alias /data/web_static/current/;
+    }
+
+    # Proxy requests for /airbnb-onepage/ to Gunicorn on port 5000
+    location /airbnb-onepage/ {
+        proxy_pass http://127.0.0.1:5000;
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header X-Forwarded-Proto $scheme;
+    }
+
+    location /airbnb-dynamic/number_odd_or_even/ {
+        proxy_pass http://localhost:5001/number_odd_or_even/;
+        proxy_redirect off;
+    }
+
+    location /api/ {
+        proxy_pass http://localhost:5002/api/;
+        proxy_redirect off;
+    }
+
+    location / {
+        proxy_pass http://localhost:5003/2-hbnb;
+        proxy_redirect off;
+    }
+
+    location /static/ {
+        alias /home/ubuntu/AirBnB_clone_v4/web_dynamic/static/;
+        proxy_redirect off;
+    }
+}
